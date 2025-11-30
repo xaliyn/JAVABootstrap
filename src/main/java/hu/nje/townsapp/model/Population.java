@@ -16,7 +16,7 @@ public class Population {
     private Long id;
 
     @Column(name = "townid")
-    private Long townid;
+    private Long townId;
 
     private Integer ryear;
     private Integer women;
