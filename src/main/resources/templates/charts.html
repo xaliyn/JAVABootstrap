@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Charts</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<!----------------- NAVBAR ----------------->
+<div th:replace="~{navbar :: navbar}"></div>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Population Charts</h2>
+
+    <!-- BAR CHART -->
+    <div class="card shadow p-4 mb-5">
+        <h4 class="text-center">County Population (Example Data)</h4>
+        <canvas id="barChart"></canvas>
+    </div>
+
+    <!-- LINE CHART -->
+    <div class="card shadow p-4">
+        <h4 class="text-center">Population Trend</h4>
+        <canvas id="lineChart"></canvas>
+    </div>
+</div>
+
+<script>
+    const labels = /*[[${labels}]]*/ ["A","B"];
+    const values = /*[[${values}]]*/ [10,20];
+
+    // BAR
+    new Chart(document.getElementById("barChart"), {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "Population",
+                data: values,
+                backgroundColor: '#4e73df'
+            }]
+        }
+    });
+
+    // LINE
+    new Chart(document.getElementById("lineChart"), {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "Population",
+                data: values,
+                borderColor: '#1cc88a',
+                fill: false
+            }]
+        }
+    });
+</script>
+
+</body>
+</html>
