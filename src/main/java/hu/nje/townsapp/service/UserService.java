@@ -18,9 +18,9 @@ public class UserService implements UserDetailsService {
 
     public void register(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole("USER");
-        userRepo.save(user);
+        userRepo.save(user);   // role already set in controller
     }
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

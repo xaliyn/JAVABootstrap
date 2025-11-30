@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Database</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="/nova/css/style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">TownsApp</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/main">Main</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="/database">Database</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5 pt-5">
+
+    <h2 class="mt-4 mb-4 text-center">Counties</h2>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="c : ${counties}">
+            <td th:text="${c.id}"></td>
+            <td th:text="${c.cname}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <h2 class="mt-5 mb-4 text-center">Towns</h2>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>County ID</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="t : ${towns}">
+            <td th:text="${t.id}"></td>
+            <td th:text="${t.tname}"></td>
+            <td th:text="${t.countyid}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+
+
+    <h2 class="mt-5 mb-4 text-center">Population</h2>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>Town ID</th>
+            <th>Year</th>
+            <th>Women</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="p : ${populations}">
+            <td th:text="${p.townid}"></td>
+            <td th:text="${p.ryear}"></td>
+            <td th:text="${p.women}"></td>
+            <td th:text="${p.total}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

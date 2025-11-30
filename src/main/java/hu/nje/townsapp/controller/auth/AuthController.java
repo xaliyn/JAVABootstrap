@@ -17,6 +17,15 @@ public class AuthController {
     public String login() {
         return "login";
     }
+    @PostMapping("/register")
+    public String register(@ModelAttribute User user,
+                           @RequestParam("role") String role) {
+
+        user.setRole(role);   // USER or ADMIN selected by button
+        userService.register(user);
+
+        return "redirect:/login";
+    }
 
     @GetMapping("/register")
     public String registerPage(Model model) {
@@ -24,9 +33,5 @@ public class AuthController {
         return "register";
     }
 
-    @PostMapping("/register")
-    public String registerSubmit(@ModelAttribute User user) {
-        userService.register(user);
-        return "redirect:/login";
-    }
+
 }

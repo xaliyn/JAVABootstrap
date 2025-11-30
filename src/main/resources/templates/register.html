@@ -15,7 +15,21 @@
         <input class="form-control mb-3" th:field="*{email}" placeholder="Email" required>
         <input class="form-control mb-3" th:field="*{password}" placeholder="Password" type="password" required>
 
-        <button class="btn btn-primary w-100">Register</button>
+        <!-- TWO BUTTONS SIDE BY SIDE -->
+        <div class="row mt-3">
+            <div class="col-6">
+                <button class="btn btn-primary w-100" type="submit" name="role" value="USER">
+                    Register as User
+                </button>
+            </div>
+
+            <div class="col-6">
+                <button class="btn btn-danger w-100" type="submit" name="role" value="ADMIN">
+                    Register as Admin
+                </button>
+            </div>
+        </div>
+
     </form>
 
     <p class="text-center mt-3">
