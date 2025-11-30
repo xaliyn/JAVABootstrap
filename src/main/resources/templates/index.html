@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TownsApp – Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg bg-light shadow-sm fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" th:href="@{/}">TownsApp</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#nav" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav ms-auto">
+
+                <!-- Task 2 -->
+                <li class="nav-item"><a class="nav-link" th:href="@{/login}">Login</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/register}">Register</a></li>
+
+                <!-- Task 3 -->
+                <li class="nav-item"><a class="nav-link" th:href="@{/}">Main</a></li>
+
+                <!-- Task 4 -->
+                <li class="nav-item"><a class="nav-link" th:href="@{/database}">Database</a></li>
+
+                <!-- Task 5 -->
+                <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contact</a></li>
+
+                <!-- Task 6 -->
+                <li class="nav-item"><a class="nav-link" th:href="@{/messages}">Messages</a></li>
+
+                <!-- Task 7 -->
+                <li class="nav-item"><a class="nav-link" th:href="@{/charts}">Charts</a></li>
+
+                <!-- Task 8 -->
+                <li class="nav-item"><a class="nav-link" th:href="@{/crud}">CRUD</a></li>
+
+                <!-- Task 9 -->
+                <li class="nav-item"><a class="nav-link" th:href="@{/rest}">REST API</a></li>
+
+                <!-- Task 10 -->
+                <li class="nav-item"><a class="nav-link" th:href="@{/admin}">Admin</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- MAIN SECTION -->
+<main class="mt-5 pt-5">
+    <div class="container py-5">
+        <h1 class="fw-bold">Welcome to TownsApp</h1>
+        <p class="lead">Java Spring Boot project using Nova Bootstrap 5 theme.</p>
+    </div>
+</main>
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>
