@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Town Form</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+
+<body>
+<div th:replace="~{navbar :: navbar}"></div>
+
+<div class="container mt-5">
+
+    <h3 class="mb-4 text-center">Town Form</h3>
+
+    <form th:action="@{/crud/add}" th:if="${town.id == null}" th:object="${town}" method="post">
+
+        <div class="mb-3">
+            <label>Name</label>
+            <input type="text" class="form-control" th:field="*{tname}">
+        </div>
+
+        <div class="mb-3">
+            <label>County</label>
+            <select class="form-control" th:field="*{countyid}">
+                <option th:each="c : ${counties}"
+                        th:value="${c.id}"
+                        th:text="${c.cname}">
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>Seat</label>
+            <input type="text" class="form-control" th:field="*{countyseat}">
+        </div>
+
+        <div class="mb-3">
+            <label>Level</label>
+            <input type="text" class="form-control" th:field="*{countylevel}">
+        </div>
+
+        <button class="btn btn-success">Save</button>
+        <a class="btn btn-secondary" th:href="@{/crud}">Cancel</a>
+
+    </form>
+
+
+    <!-- EDIT FORM -->
+    <form th:action="@{'/crud/edit/' + ${town.id}}" th:if="${town.id != null}"
+          th:object="${town}" method="post">
+
+        <div class="mb-3">
+            <label>Name</label>
+            <input type="text" class="form-control" th:field="*{tname}">
+        </div>
+
+        <div class="mb-3">
+            <label>County</label>
+            <select class="form-control" th:field="*{countyid}">
+                <option th:each="c : ${counties}"
+                        th:value="${c.id}"
+                        th:text="${c.cname}">
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>Seat</label>
+            <input type="text" class="form-control" th:field="*{countyseat}">
+        </div>
+
+        <div class="mb-3">
+            <label>Level</label>
+            <input type="text" class="form-control" th:field="*{countylevel}">
+        </div>
+
+        <button class="btn btn-warning">Update</button>
+        <a class="btn btn-secondary" th:href="@{/crud}">Cancel</a>
+
+    </form>
+
+</div>
+
+</body>
+</html>
